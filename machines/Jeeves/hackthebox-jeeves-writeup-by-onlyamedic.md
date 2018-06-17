@@ -6,6 +6,7 @@ description: "Write up for the Hack the box Machine Jeeves."
 categories: [write-up, hackthebox]
 tags: [writeup, pentesting, hackthebox]
 ---
+You can view the original writeup on my blog here: https://dastinia.io/write-up/hackthebox/2018/05/19/hackthebox-jeeves-writeup
 
 ## Intro
 !["Jeeves"](/assets/jeeves/1.png "Jeeves")
@@ -69,11 +70,11 @@ A full port scan was ran in the background, but no additional ports/services wer
 ### Enumerating Port 80
 
 Visiting the webserver on port 80 gives us this throwback to the past with an `ask jeeves` search engine webpage.
-![Ask Jeeves Search Engine]({{site.url}}/assets/images/htb/jeeves/2.png "Ask Jeeves Search Engine")
+![Ask Jeeves Search Engine](/assets/jeeves/2.png "Ask Jeeves Search Engine")
 
 There's a search bar so I input all specicial charaters to see how the "application" parses it... 
 
-![Fake Error Page Image]({{site.url}}/assets/images/htb/jeeves/3.png "Fake Error Page Image")
+![Fake Error Page Image](/assets/jeeves/3.png "Fake Error Page Image")
 
 You are presented with the fake _"error page"_ above, which is just an image of an error page.
 
@@ -84,11 +85,11 @@ You are presented with the fake _"error page"_ above, which is just an image of 
 ### Enumerating Port 50000 (Jetty/Jenkins)
 Visting the application on port 50000 in a Web browers leads us to a _Jetty 404 Error_ page.
 
-![Jetty Error Page]({{site.url}}/assets/images/htb/jeeves/4.png "Jetty Error Page")
+![Jetty Error Page](/assets/jeeves/4.png "Jetty Error Page")
 
 Whenever I encounter an application that error message that looks fairly unique, I always copy & paste the error message into Google and see what happens. This technique is very underrated, google that shit.
 
-![Google that Shit]({{site.url}}/assets/images/htb/jeeves/5.png "Google that Shit") 
+![Google that Shit](/assets/jeeves/5.png "Google that Shit") 
 
 We are seeing quite a few results for Jenkins, so there is a high probability that this server is running Jenkins as a service, and now we just have to discover it.
 
@@ -96,7 +97,7 @@ We are seeing quite a few results for Jenkins, so there is a high probability th
 
 Next step is to dirbuster everything to discover the jenkins dashboard path. I always use the `directory-list-2.3-medium.txt` which comes default in kali for most HTB boxes. 
 
-![Dirbuster]({{site.url}}/assets/images/htb/jeeves/6.png "Dirbuster")
+![Dirbuster](/assets/jeeves/6.png "Dirbuster")
 
 ```
 DirBuster 1.0-RC1 - Report
