@@ -130,7 +130,7 @@ Dirs found with a 200 response:
 
 
 It looks like `/askjeves/` seems to be the correct path for the Jenkins main dashboard, confirming our suspicions that Jenkins is the running service. 
-![Jenkins Dashboard](https://i.imgur.com/uC2bI92.png "Jenkins Dashboard")
+![Jenkins Dashboard](/assets/jeeves/7.png "Jenkins Dashboard")
 
 ## Exploitation
 ### Exploiting Jenkins
@@ -142,7 +142,7 @@ Jenkins is pretty much code execution as a service, so exploiting it shouldn't b
 
 Jenkins has a scripting console, which you can access by going to `Manage Jenkins` => `Script Console`
 
-![Jenkins Script Console](https://i.imgur.com/xj7w5jO.png "Jenkins Script Console")
+![Jenkins Script Console](/assets/jeeves/8.png "Jenkins Script Console")
 
 You can write scripts in the `Groovy Scripting Language`. I searched for `groovy script run command example` or if you just want to skip straight to the shell search `groovy script reverse shell` 
 
@@ -157,7 +157,7 @@ println "out> $sout err> $serr"
 ```
 Output:
 
-![](https://i.imgur.com/1o04hYr.png)
+![](/assets/jeeves/9.png)
 
 We confirmed that we have code execution. Now lets shell it.
 
@@ -252,7 +252,7 @@ No encoder or badchars specified, outputting raw payload
 Payload size: 588 bytes
 Final size of psh-cmd file: 7111 bytes
 ```
-![](https://i.imgur.com/sbVHY7I.png)
+![](/assets/jeeves/10.png)
 
 Hit Save & Apply 
 
@@ -341,7 +341,7 @@ Network Card(s):           1 NIC(s) Installed.
 Hyper-V Requirements:      A hypervisor has been detected. Features required for Hyper-V will not be displayed
 ```
 
-![Windows Exploit Suggester Output](https://i.imgur.com/fu0dA0L.png "Windows Exploit Suggester Results")
+![Windows Exploit Suggester Output](/assets/jeeves/11.png "Windows Exploit Suggester Results")
 
 It looks like this machine is vulnerable two a few LPE exploits the big ones being [MS16-075 (RottenPotato)](https://github.com/foxglovesec/RottenPotato) & [MS16-032](https://www.rapid7.com/db/modules/exploit/windows/local/ms16_032_secondary_logon_handle_privesc). From our `sysinfo` output we can rule out `MS16-032` because that particular exploit requires `two cpu(s)`, and this machine has only `one cpu.`
 
@@ -512,7 +512,7 @@ Session completed
 
 We can then open this file with the Keepass utility, and the password we discovered with JTR. 
 
-![Opening KeePass Database File](https://i.imgur.com/RYZ8yPc.png "Opening KeePass Database with cracked password -'moonshine1'")
+![Opening KeePass Database File](/assets/jeeves/12.png "Opening KeePass Database with cracked password -'moonshine1'")
 
 
 Here are the contents that were contained in the keepass database file.
@@ -536,7 +536,7 @@ Some CME syntax: `-p` is for a list of passwords, and `-H` is for a list of hash
 I used the `--lusers` flag to enumerate the logged on users just to validate that the credentials I used actually worked.
 
 
-!["Credential & Hash Spraying with CrackMapExec")](https://i.imgur.com/W9jh3Sn.png "Credential & Hash Spraying with CrackMapExec")
+!["Credential & Hash Spraying with CrackMapExec")](/assets/jeeves/13.png "Credential & Hash Spraying with CrackMapExec")
 
 ##### Shell with Metasploit PSEXEC Module & Hash
 
