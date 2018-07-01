@@ -6,6 +6,7 @@ description: "Write up for the Hack the box Machine Nibbles."
 categories: [write-up, hackthebox]
 tags: [writeup, pentesting, hackthebox]
 ---
+You can view the original writeup on my blog here: https://dastinia.io/write-up/hackthebox/2018/05/09/htb-nibbles/
 
 ## Introduction
 ![Nibbles](/assets/nibbles/1.png)
